@@ -1,26 +1,24 @@
 import './App.css';
 import FunctionalComponent from '../../components/FunctionalComponent';
 import ClassComponent from '../../components/ClassComponent';
+import React from 'react';
+// import Header from '../../components/Header';
+import Header from '../../components/Header/Header';
+import LoginForm from '../../components/LoginForm';
 
 function App() {
   return (
-    <div className="">
-      <FunctionalComponent />
-      <ClassComponent />
+    <React.Fragment>
+      {/* <> */}
       <div className='container'>
-        <div>
-          <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows={3} defaultValue={""} />
-          </div>
-        </div>
-
+        <Header />
+        
+        {/* <FunctionalComponent />
+        <ClassComponent /> */}
+        <LoginForm />
       </div>
-    </div>
+      {/* </> */}
+    </React.Fragment>
   );
 }
 

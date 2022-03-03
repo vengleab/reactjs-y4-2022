@@ -1,0 +1,17 @@
+.Header {
+
+  &__header {
+    margin: 10px;
+    display: flex;
+
+    & > .Header__header-item {
+      float: left;
+      padding: 10px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: green;
+      }
+    }
+  }
+}
