@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div>Demo JS & ReactJS</div>
+    <div id="root">Root</div>
+    <div id="page">Page</div>
+
+    <!-- <script>
+        const button =`<button onclick="alert('hello')">click me</button>`;
+        document.getElementById('root').innerHTML = button;
+    </script> -->
+    <script type="text/babel">
+        // Not practical
+        /*
+        const Button = React.createElement(
+            'div', // html tag name
+            { 
+                onClick: function(){
+                    alert('Hello react js')
+                    // update page
+                },
+                style: {
+                    color: 'red'
+                },
+                className: 'home'
+            }, // attribute
+            [
+                React.createElement('div', { id: 'line-1' }, 'line 1'),
+                React.createElement('div', { id: 'line-2' }, 'line 2')
+            ]
+        )
+        */
+        
+        const Button = <div>
+            <span></span>
+            <span></span>
+        </div>
+        const renderingElement = document.getElementById('root')
+        ReactDOM.render(Button, renderingElement)
+    </script>
+</body>
+</html>
