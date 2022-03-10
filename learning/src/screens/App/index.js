@@ -28,7 +28,15 @@ class App extends React.Component {
     index: 0
   }
 
+  constructor(props) {
+    super(props);
+    // constructor binding
+    // this.handleLessonChange = this.handleLessonChange.bind(this);
+  }
+
+  // auto-binding "this"
   handleLessonChange = (index, header) => {
+    console.log('handleLessonChange',this);
     const lessonIndex = lessons.findIndex(lesson => {
       return lesson.name === header;
     })
@@ -49,6 +57,8 @@ class App extends React.Component {
               'Contact Us'
             ]}
             lessons={lessonsName}
+            // dynamic binding
+            // handleLessonChange={this.handleLessonChange.bind(this)}
             handleLessonChange={this.handleLessonChange}
             displayLoginButton={true}
           />
@@ -62,7 +72,7 @@ class App extends React.Component {
               {selectedLesson.sections.map(({name, content})=> {
                 return <li
                   class="list-group-item" style={{ cursor: 'pointer' }}
-                  onClick={()=>{
+                  onClick={() =>{
                     this.setState({displayContent : content })
                   }}
                   >
