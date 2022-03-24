@@ -2,11 +2,15 @@
 
   &__header {
     margin: 10px;
-    display: flex;
 
-    & > .Header__header-item {
+    &  .Header__header-item {
       float: left;
       padding: 10px;
+      
+      a {
+        color: unset;
+        text-decoration: unset
+      }
 
       &:hover {
         cursor: pointer;
