@@ -23,12 +23,12 @@ export default class HomePage extends Component {
     return !this.state.stopRendering
   }
 
-  // Avoid update state
+  // Avoid update state, usually use when we can to do sth when props or state change
   componentDidUpdate(oldProps, oldStates) {
-    alert("Component already update") 
-    if(oldStates.showModal === this.state.showModal) {
-      this.setState({ showModal: true })
-    }
+    // alert("Component already update") 
+    // if(oldStates.showModal === this.state.showModal) {
+    //   this.setState({ showModal: true })
+    // }
    
 
   }
@@ -44,10 +44,14 @@ export default class HomePage extends Component {
     //   this.setState({ showModal: true })
     // }, 3 * ONE_SEC);
 
-    setInterval(() => {
+    this.intervalId =  setInterval(() => {
       console.log("Running timer",  new Date().toLocaleTimeString())
-      // this.setState({ time: new Date() });
+      this.setState({ time: new Date() });
     }, ONE_SEC);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId)
   }
 
   render() {
