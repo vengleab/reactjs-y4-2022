@@ -9,6 +9,7 @@ import { Routes, Route, useParams } from "react-router-dom";
 import AboutUs from '../AboutUs';
 import ContactUs from '../ContactUs';
 import Lesson from '../Lesson';
+import HomePage from '../HomePage';
 
 const lessons = [
   { 
@@ -87,7 +88,7 @@ class App extends React.Component {
           </div> */}
          
           <Routes>
-            <Route path='home' element={<div>home</div>} />
+            <Route path='home' element={<HomePage />} />
             <Route path='login' element={<LoginForm/>} />
             <Route path='about-us' element={<AboutUs/>} />
             <Route path='contact-us' element={<ContactUs />} />
