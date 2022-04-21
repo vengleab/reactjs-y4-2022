@@ -1,0 +1,16 @@
+{
+  "name": "basic-article-api",
+  "version": "1.0.0",
+  "description": "## Start Node Server ``` npm init # start node project ```",
+  "main": "index.js",
+  "scripts": {
+    "prod": "node index.js",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
