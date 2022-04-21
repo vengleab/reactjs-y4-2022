@@ -10,7 +10,7 @@ npm init # start node project
 - koa js
 
 ## Tables
-- articles(id, title, description)
+- articles(id, title, content)
 - users (id, username, password)
 
 # API
