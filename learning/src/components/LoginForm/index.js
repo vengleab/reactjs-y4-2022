@@ -1,19 +1,42 @@
+import axios from "axios";
 import React from "react";
 
 export default class LoginForm extends React.Component {
 
+  handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+    this.setState({
+      [name]: value
+    })
+  }
+
+  async handleLogin(evt) {
+    evt.preventDefault();
+    const { username, password } = this.state;
+    try {
+      const res = await axios({
+        url: `${process.env.REACT_APP_BACKEND_URL}/login`,
+        method: 'POST',
+        data: { username, password}
+      })
+      alert(res.data.message)
+      localStorage.setItem("token", res.data.result?.token)
+    } catch (error) {
+      alert(error.response.data.message)
+    }
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleLogin.bind(this)}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Username
           </label>
           <input
-            type="email"
+            name="username"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            onChange={this.handleInputChange}
           />
         </div>
         <div className="mb-3">
@@ -21,9 +44,10 @@ export default class LoginForm extends React.Component {
             Password
           </label>
           <input
+            name="password"
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            onChange={this.handleInputChange}
           />
         </div>
         <button type="submit" className="btn btn-primary">
