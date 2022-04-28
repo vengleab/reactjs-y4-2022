@@ -1,33 +1,32 @@
 import React from "react";
 
-export default class LoginForm extends React.Component {
-
+export default class PostArticle extends React.Component {
   render() {
     return (
       <form>
+        <h1>Post new article</h1>
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Username
+          <label htmlFor="title" className="form-label">
+            Title
           </label>
           <input
-            type="email"
             className="form-control"
-            id="exampleInputEmail1"
+            id="title"
             aria-describedby="emailHelp"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
+          <label htmlFor="content" className="form-label">
+            Content
           </label>
           <input
-            type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="content"
+            aria-describedby="emailHelp"
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Post
         </button>
       </form>
     );

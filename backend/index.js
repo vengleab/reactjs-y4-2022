@@ -11,6 +11,13 @@ const JWT_SECRET = "1234567";
 
 // To accept json data / to promote as RestAPI
 server.use(express.json());
+server.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next()
+})
 
 server.use("/articles", articleRoutes);
 server.post("/login", async (req, res) => {
