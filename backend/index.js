@@ -42,7 +42,7 @@ server.post("/login", async (req, res) => {
     const { password, ...userData } = await user.toJSON();
     new SuccessResposne(res)
       .setResult({
-        token: jwt.sign(userData, JWT_SECRET, { expiresIn: "15s" }),
+        token: jwt.sign(userData, JWT_SECRET, { expiresIn: "1h" }),
       })
       .send("Login successful");
   } else {

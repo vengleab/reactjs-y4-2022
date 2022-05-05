@@ -18,6 +18,7 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const {title, content } = req.body;
+  console.log("=======> article body", req.body)
   const article = new ArticleModel({
     title,
     content
