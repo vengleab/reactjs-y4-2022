@@ -20,19 +20,19 @@ export default class HomePage extends React.Component {
         <div className="row">
           {articles.sort((a, b) => a.id  - b.id).map((article) => {
             return (
-              <div className="col-3">
+              <div className="col-3" key={article.id}>
                 <div
                   className="card"
                   style={{ height: "300px", margin: "16px" }}
                 >
                   <div className="card-body">
                     <h5 className="card-title">{article.title}</h5>
-                    <p className="card-text">
-                      {article.content?.length > DISPLAY_LENGTH
+                    <p className="card-text" dangerouslySetInnerHTML={{ __html: article.content?.length > DISPLAY_LENGTH
                         ? article.content.slice(0, DISPLAY_LENGTH) + "..."
-                        : article.content}
+                        : article.content}}>
+                      
                     </p>
-                    <Link to={"/article/"+article.id} class="btn btn-primary" >
+                    <Link to={"/article/"+article.id} className="btn btn-primary" >
                       Read
                     </Link>
                   </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
 
   handleInputChange = (evt) => {
     const { name, value } = evt.target;
@@ -20,9 +20,11 @@ export default class LoginForm extends React.Component {
         data: { username, password}
       })
       alert(res.data.message)
-      localStorage.setItem("token", res.data.result?.token)
+      await localStorage.setItem("token", res.data.result?.token)
+      this.props.onLoginSuccess();
     } catch (error) {
-      alert(error.response.data.message)
+      console.log(error)
+      // alert(error.response.data.message)
     }
   }
 
@@ -57,3 +59,10 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+
+LoginForm.defaultProps = {
+  onLoginSuccess: ()=>{}
+}
+
+
+export default LoginForm 

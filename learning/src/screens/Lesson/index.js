@@ -15,7 +15,7 @@ class Lesson extends React.Component {
       <ul className="list-group">
       {selectedLesson.sections.map(({name, content})=> {
         return <li
-          class="list-group-item" style={{ cursor: 'pointer' }}
+          className="list-group-item" style={{ cursor: 'pointer' }}
           onClick={() =>{
             this.setState({displayContent : content })
           }}
